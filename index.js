@@ -1,13 +1,15 @@
 var postcss = require('postcss');
 
-module.exports = postcss.plugin('PLUGIN_NAME', function (opts) {
-    opts = opts || {};
+module.exports = postcss.plugin('PLUGIN_NAME', (opts = {}) => {
+    const defaults = {};
 
-    // Work with options here
+    opts = opts.assign({}, defaults, opts);
 
-    return function (root, result) {
+    // work with options here
 
-        // Transform CSS AST here
+    return (css, result) => {
+
+        // transform CSS here
 
     };
 });
